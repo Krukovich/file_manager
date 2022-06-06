@@ -6,6 +6,9 @@ import {
   showCurrentPath,
   showHelloMessage
 } from './helpers.js';
+import { createFiles } from './modules/files/create.js';
+import { showAll } from './modules/navigation/ls.js';
+import { goUpper } from './modules/navigation/up.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -26,10 +29,27 @@ switch (key) {
 }
 
 rl.on('line', (line) => {
-  showCurrentPath();
+  const [key, option] = line.split(' ');
 
-  if (line === '.exit') {
-    rl.close();
+  switch (key) {
+    case 'up':
+      goUpper();
+      showCurrentPath();
+      break;
+    case 'ls':
+      showAll();
+      showCurrentPath();
+      break;
+
+    case 'add':
+      createFiles(option);
+      showCurrentPath();
+      break;
+    case '.exit':
+      rl.close();
+      break;
+    default:
+      console.log('Sorry, that is not something I know how to do.');
   }
 });
 
