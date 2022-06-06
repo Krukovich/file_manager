@@ -8,6 +8,14 @@ export const showHelloMessage = (name) => {
   console.log(`Welcome to the File Manager, ${name}!`);
 };
 
+export const showErrorMessage = () => {
+  console.log('Invalid input');
+};
+
+export const showOperationError = () => {
+  console.log('Operation failed');
+};
+
 export const showByeMessage = (name) => {
   console.log(`Thank you for using File Manager, ${name}!`);
 };
