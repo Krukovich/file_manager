@@ -25,8 +25,7 @@ export const getUserName = (args) => {
 };
 
 export const setStartPath = () => {
-  const userName = os.userInfo().username;
-  process.chdir(`/Users/${userName}`);
+  process.chdir(os.homedir());
 };
 
 export const prepareCommands = (line) => {
@@ -39,4 +38,4 @@ export const prepareCommands = (line) => {
     command,
     options,
   }
-}
+};
