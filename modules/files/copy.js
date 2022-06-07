@@ -1,11 +1,10 @@
 import fs from 'fs';
+import path from "path";
 
 export const copyFiles = (options) => {
   const [inputPath, outputPath] = options;
-  const readable = fs.createReadStream(inputPath);
-  readable.on('data', (chunk) => {
-    console.log(chunk);
-    // const writable = fs.createWriteStream(`${path}/${outputPath}`);
-    // readable.pipe(writable);
-  });
+  const filename = path.basename(inputPath);
+  const fileReadStream=fs.createReadStream(inputPath);
+  const fileWriteStream = fs.createWriteStream(`${outputPath}/${filename}`);
+  fileReadStream.pipe(fileWriteStream);
 };

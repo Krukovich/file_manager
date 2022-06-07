@@ -39,7 +39,6 @@ export const commandSwitcher = (key, option, rl) => {
       renameFiles(option);
       showCurrentPath();
       break;
-    //TODO ADD LOGIC FOR COPY FILES
     case 'cp':
       copyFiles(option);
       showCurrentPath();
