@@ -8,6 +8,7 @@ import { renameFiles } from './modules/files/rename.js';
 import { deleteFile } from './modules/files/delete.js';
 import { copyFiles } from './modules/files/copy.js';
 import { getSystemInfo } from './modules/os/os.js';
+import { getHashFromFile } from './modules/hash/hash.js';
 
 export const commandSwitcher = (key, option, rl) => {
   switch (key) {
@@ -52,6 +53,11 @@ export const commandSwitcher = (key, option, rl) => {
 
     case 'os':
       getSystemInfo(option);
+      showCurrentPath();
+      break;
+
+    case 'hash':
+      getHashFromFile(option);
       showCurrentPath();
       break;
 
