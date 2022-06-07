@@ -11,6 +11,7 @@ import { getSystemInfo } from './modules/os/os.js';
 import { getHashFromFile } from './modules/hash/hash.js';
 import { compressFile } from './modules/compress/compress.js';
 import { decompressFile } from './modules/compress/decompress.js';
+import { moveFile } from './modules/files/move.js';
 
 export const commandSwitcher = (key, option, rl) => {
   switch (key) {
@@ -43,8 +44,8 @@ export const commandSwitcher = (key, option, rl) => {
       copyFiles(option);
       showCurrentPath();
       break;
-    //TODO ADD LOGIC FOR MOVE FILES
     case 'mv':
+      moveFile(option);
       showCurrentPath();
       break;
     case 'rm':

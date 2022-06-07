@@ -45,4 +45,4 @@ rl.on('close', () => {
   showByeMessage(name);
 });
 
-//TODO ASK ABOUT MODULES
+//TODO ASK ABOUT HANDLE ERROR AND ASK ABOUT MODULES
