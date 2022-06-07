@@ -6,7 +6,7 @@ export const getSystemInfo = (options) => {
 
   switch (key) {
     case '--EOL':
-      //TODO ADD LOGIC FOR SHOW THIS INFORMATION
+      console.log(JSON.stringify(os.EOL));
       break;
     case '--cpus':
       console.log(os.cpus());
