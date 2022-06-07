@@ -1,13 +1,7 @@
-import { spawn } from 'child_process';
+import fs from 'fs';
 
 export const showAll = () => {
-  const ls = spawn('ls');
-
-  ls.stdout.on('data', data => {
-    console.log(`stdout: ${data}`);
-  });
-
-  ls.stderr.on('data', data => {
-    console.log(`stderr: ${data}`);
-  });
+  const path = process.cwd();
+  const files = fs.readdirSync(path);
+  console.log(files);
 };

@@ -28,3 +28,15 @@ export const setStartPath = () => {
   const userName = os.userInfo().username;
   process.chdir(`/Users/${userName}`);
 };
+
+export const prepareCommands = (line) => {
+  const prepareLine = line.split(' ');
+  const [command] = prepareLine;
+  prepareLine.shift();
+  const options = prepareLine.filter((line) => line !== undefined && line !== '' && line !== ' ');
+
+  return {
+    command,
+    options,
+  }
+}

@@ -4,6 +4,7 @@ import {
   setStartPath,
   showByeMessage,
   showCurrentPath,
+  prepareCommands,
   showErrorMessage,
   showHelloMessage,
   showOperationError
@@ -29,10 +30,10 @@ switch (key) {
 }
 
 rl.on('line', (line) => {
-  const [key, option] = line.split(' ');
+  const { command, options } = prepareCommands(line);
 
   try {
-    commandSwitcher(key, option, rl);
+    commandSwitcher(command, options, rl);
   } catch (e) {
     showOperationError();
   }
