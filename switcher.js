@@ -9,6 +9,8 @@ import { deleteFile } from './modules/files/delete.js';
 import { copyFiles } from './modules/files/copy.js';
 import { getSystemInfo } from './modules/os/os.js';
 import { getHashFromFile } from './modules/hash/hash.js';
+import { compressFile } from './modules/compress/compress.js';
+import { decompressFile } from './modules/compress/decompress.js';
 
 export const commandSwitcher = (key, option, rl) => {
   switch (key) {
@@ -59,6 +61,17 @@ export const commandSwitcher = (key, option, rl) => {
     case 'hash':
       getHashFromFile(option);
       showCurrentPath();
+      break;
+
+    case 'compress':
+      compressFile(option).then(() => {
+        showCurrentPath();
+      });
+      break;
+    case 'decompress':
+      decompressFile(option).then(() => {
+        showCurrentPath();
+      });
       break;
 
     case '.exit':
