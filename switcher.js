@@ -7,6 +7,7 @@ import { cat } from './modules/files/cat.js';
 import { renameFiles } from './modules/files/rename.js';
 import { deleteFile } from './modules/files/delete.js';
 import { copyFiles } from './modules/files/copy.js';
+import { getSystemInfo } from './modules/os/os.js';
 
 export const commandSwitcher = (key, option, rl) => {
   switch (key) {
@@ -46,6 +47,11 @@ export const commandSwitcher = (key, option, rl) => {
       break;
     case 'rm':
       deleteFile(option);
+      showCurrentPath();
+      break;
+
+    case 'os':
+      getSystemInfo(option);
       showCurrentPath();
       break;
 
