@@ -2,7 +2,6 @@ import fs from 'fs';
 import crypto from 'crypto';
 import { showOperationError } from '../../helpers.js';
 
-//TODO ASK HOW I CAN REWRITE IN ON STREAMS
 export const getHashFromFile = (options) => {
   try {
     const [path] = options;
