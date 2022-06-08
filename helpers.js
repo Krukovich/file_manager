@@ -63,7 +63,7 @@ export const showCommands = () => {
   const architecture = new Commands('os', 'os --architecture', 'os --architecture');
   const hash = new Commands('hash', 'hash path_to_file', 'hash file.txt');
   const compress = new Commands('compress', 'compress path_to_file path_to_destination', 'compress file.txt /User/Documents');
-  const decompress = new Commands('decompress', 'decompress path_to_file path_to_destination', 'decompress file.txt.gz /User/Documents');
+  const decompress = new Commands('decompress', 'decompress path_to_file path_to_destination', 'decompress file.txt.br /User/Documents');
 
   console.table([up, cd, ls, cat, add, rn, cp, mv, rm, eol, cpus, homedir, username, architecture, hash, compress, decompress]);
 };
