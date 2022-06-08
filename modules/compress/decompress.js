@@ -1,6 +1,7 @@
 import zlib from 'zlib';
 import fs from 'fs';
 import path from 'path';
+import { showOperationError } from '../../helpers.js';
 
 export const decompressFile = async (options) => {
   const [inputPath, outputPath] = options;
@@ -9,5 +10,10 @@ export const decompressFile = async (options) => {
   const readStream = fs.createReadStream(fileName);
   const writeStream = fs.createWriteStream(`${outputPath}/${decompressFileName}`);
   const brotli = zlib.createBrotliDecompress();
+
+  readStream.on('error', () => showOperationError());
+  writeStream.on('error', () => showOperationError());
+  brotli.on('error', () => showOperationError());
+
   readStream.pipe(brotli).pipe(writeStream);
 };
