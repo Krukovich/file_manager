@@ -3,7 +3,6 @@ import {
   getUserName,
   showCommands,
   setStartPath,
-  clearConsole,
   showByeMessage,
   showCurrentPath,
   prepareCommands,
@@ -36,7 +35,6 @@ rl.on('line', (line) => {
   const { command, options } = prepareCommands(line);
 
   try {
-    clearConsole();
     commandSwitcher(command, options, rl);
   } catch (e) {
     showOperationError();

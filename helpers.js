@@ -20,10 +20,6 @@ export const showByeMessage = (name) => {
   console.log(`Thank you for using File Manager, ${name}!`);
 };
 
-export const clearConsole = () => {
-  console.clear();
-};
-
 export const getUserName = (args) => {
   return args.slice(2)[0].split('=');
 };
