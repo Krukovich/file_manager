@@ -1,12 +1,14 @@
 import readline from 'readline';
 import {
   getUserName,
+  showCommands,
   setStartPath,
   showByeMessage,
   showCurrentPath,
+  prepareCommands,
   showErrorMessage,
   showHelloMessage,
-  showOperationError
+  showOperationError,
 } from './helpers.js';
 import { commandSwitcher } from './switcher.js';
 
@@ -21,6 +23,7 @@ const [key, name] = args;
 switch (key) {
   case '--username':
     setStartPath();
+    showCommands();
     showHelloMessage(name)
     showCurrentPath();
     break;
@@ -29,10 +32,10 @@ switch (key) {
 }
 
 rl.on('line', (line) => {
-  const [key, option] = line.split(' ');
+  const { command, options } = prepareCommands(line);
 
   try {
-    commandSwitcher(key, option, rl);
+    commandSwitcher(command, options, rl);
   } catch (e) {
     showOperationError();
   }
